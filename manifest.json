@@ -1,34 +1,35 @@
 {
-    "manifest_version":2,
-    "name":"Shutdown After Youtube Video",
-    "version":"1.0",
+    "manifest_version": 2,
+    "name": "Shutdown After Youtube Video",
+    "version": "1.0",
     "author" : "Febin Baiju",
-    "description":"A chrome extension to shutdown the Linux system after a youtube video is finished",
-    "icons":{
+    "description": "A chrome extension to shutdown the Linux system after a youtube video is finished",
+    "icons": {
         "128": "icon128.png",
         "48": "icon48.png",
         "16": "icon16.png"
     },
 
       "page_action": {
-          "title": "Front Page",
           "default_icon" : "icon16.png",
           "default_popup" : "firstpage.html"
+          ,"title": "Front Page"
       },
+      "background": {
+        "scripts": ["background.js"]
+    },
       "content_scripts": [
         {
           "matches": [
             "https://youtube.com/watch*",
             "https://www.youtube.com/watch*"
           ],
-          "js": ["content.js","jquery-3.5.0.min.js"]
+          "js": ["content.js","jquery-3.5.0.min.js"],
+          "run_at" : "document_idle"
         }
       ],
-      "background" : {
-          "scripts" : ["eventPage.js"],
-          "persistent" : false
-      },
-      "permissions" : [
+
+      "permissions": [
           "tabs",
           "https://youtube.com/watch*",
           "https://www.youtube.com/watch*"
