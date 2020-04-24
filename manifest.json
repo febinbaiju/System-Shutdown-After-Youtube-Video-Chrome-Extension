@@ -21,7 +21,6 @@
       "content_scripts": [
         {
           "matches": [
-            "https://youtube.com/watch*",
             "https://www.youtube.com/watch*"
           ],
           "js": ["content.js","jquery-3.5.0.min.js"],
@@ -31,7 +30,6 @@
 
       "permissions": [
           "tabs",
-          "https://youtube.com/watch*",
           "https://www.youtube.com/watch*"
       ]
 }
