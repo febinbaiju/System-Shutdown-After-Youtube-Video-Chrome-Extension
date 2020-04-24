@@ -9,25 +9,28 @@
         "48": "icon48.png",
         "16": "icon16.png"
     },
-    "content_scripts": [
+
+      "page_action": {
+          "title": "Front Page",
+          "default_icon" : "icon16.png",
+          "default_popup" : "firstpage.html"
+      },
+      "content_scripts": [
         {
           "matches": [
-            "https://youtube.com/watch*"
+            "https://youtube.com/watch*",
+            "https://www.youtube.com/watch*"
           ],
-          "js": ["jquery-3.5.0.min.js", "functions.js"]
+          "js": ["content.js","jquery-3.5.0.min.js"]
         }
       ],
       "background" : {
           "scripts" : ["eventPage.js"],
           "persistent" : false
       },
-      "page_action": {
-          "title": "pageFront",
-          "default_icon" : "icon16.png",
-          "default_popup" : "firstpage.html"
-      },
       "permissions" : [
           "tabs",
-          "https://youtube.com/watch*"
+          "https://youtube.com/watch*",
+          "https://www.youtube.com/watch*"
       ]
 }
