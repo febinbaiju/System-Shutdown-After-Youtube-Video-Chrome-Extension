@@ -30,9 +30,18 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 
     //send to the local server for shutdown to process
     if (confirm("System will shutdown at "+final_result)) {
-        window.alert("done");
-      } else {
-        window.alert("nope");
+        var dataString = "http://localhost/shutdown.php";
+
+$.ajax
+({
+  type: "GET",
+  url: dataString,
+  data: "?time="+btoa(final_result),
+  success: function(html)
+  {
+     
+  }
+});
       }
 
 }
