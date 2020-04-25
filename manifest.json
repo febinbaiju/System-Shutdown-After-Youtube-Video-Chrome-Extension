@@ -9,22 +9,21 @@
         "48": "icon48.png",
         "16": "icon16.png"
     },
-
       "page_action": {
           "default_icon" : "icon16.png",
-          "default_popup" : "firstpage.html"
-          ,"title": "Front Page"
+          "default_popup": "firstpage.html",
+          "default_title": "Front Page"
       },
       "background": {
         "scripts": ["background.js"]
+        ,"persistent": false
     },
       "content_scripts": [
         {
           "matches": [
             "https://www.youtube.com/watch*"
           ],
-          "js": ["content.js","jquery-3.5.0.min.js"],
-          "run_at" : "document_idle"
+          "js": ["content.js","jquery-3.5.0.min.js"]
         }
       ],
 
